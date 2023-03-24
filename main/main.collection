@@ -26,7 +26,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 480.0
+    x: 421.217
     y: 320.0
     z: 0.0
   }
@@ -84,11 +84,11 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"rivemodel\"\n"
   "  type: \"rivemodel\"\n"
-  "  data: \"scene: \\\"/assets/skeleton.rivescene\\\"\\n"
-  "default_animation: \\\"idle\\\"\\n"
+  "  data: \"scene: \\\"/assets/hero.rivescene\\\"\\n"
+  "default_animation: \\\"walk 2\\\"\\n"
   "material: \\\"/defold-rive/assets/rivemodel.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
-  "default_state_machine: \\\"State Machine 1\\\"\\n"
+  "default_state_machine: \\\"Hero states\\\"\\n"
   "create_go_bones: false\\n"
   "\"\n"
   "  position {\n"
@@ -105,8 +105,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 373.756
-    y: 292.523
+    x: 0.0
+    y: 320.826
     z: 0.0
   }
   rotation {

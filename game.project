@@ -16,3 +16,6 @@ input_method = HiddenInputField
 title = rive_test
 dependencies#0 = https://github.com/defold/extension-rive/archive/refs/tags/1.1.zip
 
+[graphics]
+texture_profiles = /assets/default.texture_profiles
+

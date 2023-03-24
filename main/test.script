@@ -2,14 +2,32 @@ local function complete_function(self, message_id, message, sender)
 	print(message_id)
 end
 
+function window_callback(self, event, data)
+	if event == window.WINDOW_EVENT_FOCUS_LOST then
+		print("window.WINDOW_EVENT_FOCUS_LOST")
+	elseif event == window.WINDOW_EVENT_FOCUS_GAINED then
+		print("window.WINDOW_EVENT_FOCUS_GAINED")
+	elseif event == window.WINDOW_EVENT_ICONFIED then
+		print("window.WINDOW_EVENT_ICONFIED")
+	elseif event == window.WINDOW_EVENT_DEICONIFIED then
+		print("window.WINDOW_EVENT_DEICONIFIED")
+	elseif event == window.WINDOW_EVENT_RESIZED then
+		print("Window resized: ", data.width, data.height)
+	end
+end
+
+
 function init(self)
-	
+	-- window.set_listener(window_callback)
 	-- profiler.enable_ui(true)
 	-- profiler.set_ui_view_mode(profiler.VIEW_MODE_MINIMIZED)
 	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
 
-	rive.play_anim("/go2#rivemodel", "idle", go.PLAYBACK_LOOP_BACKWARD, {offset = 0.5, playback_rate = 1.2}, complete_function)
+	-- rive.play_state_machine("/go2#rivemodel", "Angry")
+	-- rive.play_anim("/go2#rivemodel", "Angry Walk", go.PLAYBACK_LOOP_FORWARD, {offset = 0.5, playback_rate = 1.2}, complete_function)
 	-- rive.cancel("/go2#rivemodel")
+
+	go.animate("/go2", "position.x", go.PLAYBACK_LOOP_FORWARD, 960, go.EASING_LINEAR, 8)
 
 	msg.post(".", "acquire_input_focus")
 end
@@ -33,9 +51,9 @@ function on_input(self, action_id, action)
 	if action_id == hash("touch") and action.released then
 		self.foo = self.foo or false
 		if self.foo then
-			rive.play_anim("/go2#rivemodel", "idle", go.PLAYBACK_LOOP_FORWARD, {offset = 0, playback_rate = 1 + math.random()}, complete_function)
+			-- rive.play_anim("/go2#rivemodel", "idle", go.PLAYBACK_LOOP_FORWARD, {offset = 0, playback_rate = 1 + math.random()}, complete_function)
 		else
-			rive.cancel("/go2#rivemodel")
+			-- rive.cancel("/go2#rivemodel")
 		end
 		self.foo = not self.foo
 			
